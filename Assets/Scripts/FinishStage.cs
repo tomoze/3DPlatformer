@@ -22,6 +22,8 @@ public class FinishStage : MonoBehaviour
     public int totalScored;
     public GameObject levelBlocker;
 
+    public GameObject fadeOut;
+
     private void OnTriggerEnter(Collider other)
     {
         GetComponent<BoxCollider>().enabled = false;
@@ -52,7 +54,9 @@ public class FinishStage : MonoBehaviour
         else if (totalScored >= 5000)
             RankB.SetActive(true);
         else RankC.SetActive(true);
-
-
+        yield return new WaitForSeconds(1);
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
