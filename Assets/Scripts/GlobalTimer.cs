@@ -8,10 +8,12 @@ public class GlobalTimer : MonoBehaviour
     public GameObject timeDisplay;
     public bool eina = false;
     public int sekundes = 100;
+    public static int extendScore;
 
 
     void Update()
     {
+        extendScore = sekundes;
 
         if (eina == false)
         {
