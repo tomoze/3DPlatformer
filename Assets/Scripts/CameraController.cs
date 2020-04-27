@@ -23,14 +23,10 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
-    {
-        if (!Input.GetButtonDown("Cancel"))
-            CameraUpdate();
-    }
+
 
     // Update is called once per frame
-    void CameraUpdate()
+    void LateUpdate()
     {
             float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
             target.Rotate(0, horizontal, 0);
