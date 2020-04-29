@@ -29,5 +29,6 @@ public class MainMenu : MonoBehaviour
     public void Reset()
     {
         PlayerPrefs.SetInt("LevelScore", 0);
+        bestScoreDisplay.GetComponent<Text>().text = "High Score: " + 0;
     }
 }

@@ -23,6 +23,7 @@ public class PauseGame : MonoBehaviour
 
                 Cursor.visible = true;
                 CameraStop.GetComponent<CameraController>().enabled = false;
+                Cursor.lockState = CursorLockMode.Confined;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0;
                 gamePaused = true;
@@ -30,7 +31,9 @@ public class PauseGame : MonoBehaviour
             }
             else
             {
+
                 CameraStop.GetComponent<CameraController>().enabled = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 pauseMenu.SetActive(false);
                 levelMusic.UnPause();
                 Cursor.visible = false;
@@ -43,6 +46,8 @@ public class PauseGame : MonoBehaviour
 
     public void ResumeGame()
     {
+        CameraStop.GetComponent<CameraController>().enabled = true;
+        Cursor.lockState = CursorLockMode.Confined;
         pauseMenu.SetActive(false);
         levelMusic.UnPause();
         Cursor.visible = false;
@@ -52,6 +57,8 @@ public class PauseGame : MonoBehaviour
 
     public void RestartLevel()
     {
+        CameraStop.GetComponent<CameraController>().enabled = true;
+        Cursor.lockState = CursorLockMode.Confined;
         pauseMenu.SetActive(false);
         levelMusic.UnPause();
         Cursor.visible = false;
