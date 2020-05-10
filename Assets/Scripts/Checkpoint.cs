@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public HealthManager theHealthMan;
+    private LevelDeath deathPlain;
 
     public Renderer theRend;
 
@@ -43,7 +44,10 @@ public class Checkpoint : MonoBehaviour
     {
         if(other.tag.Equals("Player"))
         {
+            deathPlain = FindObjectOfType<LevelDeath>();
+            deathPlain.SetSpawn(transform.position);
             theHealthMan.SetSpawnPoint(transform.position);
+            //deathPlain.SetSpawnPoint(theH)
             CheckpointOn();
         }
     }

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5d0505b2e67c3b24d9b34be767935f98
   - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 8f2becf7f7752f346a80cbdea658840e
+  - enabled: 1
     path: Assets/Scenes/RedirectLevel.unity
     guid: 399b824d08e265e42a653396a2f7f6bc
   - enabled: 1

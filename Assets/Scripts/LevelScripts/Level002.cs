@@ -9,7 +9,8 @@ public class Level002 : MonoBehaviour
 
     void Start()
     {
-        RedirectToLevel.redirectToLevel = 4;
+        RedirectToLevel.redirectToLevel = 5;
+        PlayerPrefs.SetInt("LevelIndex", RedirectToLevel.redirectToLevel);
         StartCoroutine(FadeInOff());
     }
 

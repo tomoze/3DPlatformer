@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public int bestScore;
     public GameObject bestScoreDisplay;
+    int stageIndex = 0;
 
     void Start()
     {
@@ -15,9 +16,15 @@ public class MainMenu : MonoBehaviour
         bestScoreDisplay.GetComponent<Text>().text = "High Score: " + bestScore;
     }
 
+    public void Continue()
+    {
+        stageIndex = PlayerPrefs.GetInt("LevelIndex");
+        SceneManager.LoadScene(stageIndex);
+    }
+
     public void PlayGame()
     {
-        RedirectToLevel.redirectToLevel = 3;
+        RedirectToLevel.redirectToLevel = 4;
         SceneManager.LoadScene(2);
     }
 

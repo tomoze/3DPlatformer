@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public Material[] material;
+    Renderer rend;
+    
 
     public float moveSpeed;
     public CharacterController controller;
@@ -20,6 +24,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        Scene scene = SceneManager.GetActiveScene();
+        int mat = PlayerPrefs.GetInt("CharacterSelected");
+        if (scene.name != "CharacterSelection")
+        {
+            rend = GetComponent<Renderer>();
+            rend.sharedMaterial = material[mat];
+        }
+
     }
 
     // Update is called once per frame

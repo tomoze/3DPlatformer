@@ -75,5 +75,6 @@ public class PauseGame : MonoBehaviour
         gamePaused = false;
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
+        Cursor.visible = true;
     }
 }

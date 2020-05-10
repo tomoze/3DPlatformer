@@ -22,14 +22,20 @@ public class HealthManager : MonoBehaviour
     public float respawnLength;
 
     public GameObject fadeOut;
+
+    public HealthBar healthBar;
+
+    private LifeManager lifeSystem;
+
+    public Transform items;
     
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-
+        healthBar.SetMaxHealth(maxHealth);
         //thePlayer = FindObjectOfType<PlayerController>();
-
+        lifeSystem = FindObjectOfType<LifeManager>();
         respawnPoint = thePlayer.transform.position;
     }
 
@@ -61,10 +67,11 @@ public class HealthManager : MonoBehaviour
             currentHealth -= damage;
             //if (currentHealth < 0)
             //    currentHealth = 0;
-
+            healthBar.SetHealth(currentHealth);
             if(currentHealth <= 0)
             {
                 Respawn();
+                
             }
 
             else
@@ -102,6 +109,7 @@ public class HealthManager : MonoBehaviour
         isRespawning = false;
 
         fadeOut.SetActive(true);
+        lifeSystem.TakeLife();
         yield return new WaitForSeconds(1f);
         thePlayer.gameObject.SetActive(true);
         GameObject player = GameObject.Find("Player");
@@ -111,6 +119,10 @@ public class HealthManager : MonoBehaviour
         currentHealth = maxHealth;
         charController.enabled = true;
         fadeOut.SetActive(false);
+        healthBar.SetHealth(maxHealth);
+
+        for(int i = 0; i< items.childCount; i++)
+            items.GetChild(i).gameObject.SetActive(true);
 
         invincibilityCounter = invincibilityLength;
         playerRend.enabled = false;

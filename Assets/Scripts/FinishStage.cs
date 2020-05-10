@@ -46,6 +46,7 @@ public class FinishStage : MonoBehaviour
         levelTimer.SetActive(false);
         levelComplete.Play();
         StartCoroutine(CalculateScore());
+        //PlayerPrefs.SetInt("LevelIndex", RedirectToLevel.redirectToLevel + 1);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

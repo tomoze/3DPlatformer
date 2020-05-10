@@ -12,6 +12,7 @@ public class GemRed : MonoBehaviour
     {
         GlobalScore.currentScore += 750;
         collectSound.Play();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }

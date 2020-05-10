@@ -6,10 +6,11 @@ public class Level001 : MonoBehaviour
 {
 
     public GameObject fadeIn;
-
+    
     void Start()
     {
-        RedirectToLevel.redirectToLevel = 3;
+        RedirectToLevel.redirectToLevel = 4;
+        PlayerPrefs.SetInt("LevelIndex", RedirectToLevel.redirectToLevel);
         StartCoroutine(FadeInOff());
     }
 

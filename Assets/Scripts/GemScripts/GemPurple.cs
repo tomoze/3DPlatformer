@@ -12,6 +12,7 @@ public class GemPurple : MonoBehaviour
     {
         GlobalScore.currentScore += 1000;
         collectSound.Play();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }

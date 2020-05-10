@@ -7,7 +7,7 @@ public class GlobalTimer : MonoBehaviour
 {
     public GameObject timeDisplay;
     public bool eina = false;
-    public int sekundes = 100;
+    public int sekundes = 10;
     public static int extendScore;
 
 

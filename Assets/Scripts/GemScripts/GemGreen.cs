@@ -12,6 +12,7 @@ public class GemGreen : MonoBehaviour
     {
         GlobalScore.currentScore += 500;
         collectSound.Play();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }
